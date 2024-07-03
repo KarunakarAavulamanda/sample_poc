@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sample_poc/bloc/posts/posts_bloc.dart';
 import 'package:sample_poc/bloc/users/users_bloc.dart';
-import 'package:sample_poc/ui/home_screen/home_screen_ui/post_screen.dart';
+import 'package:sample_poc/ui/home_screen/post_screen.dart';
 
 void main() {
   HttpOverrides.global = MyHttpOverrides();
