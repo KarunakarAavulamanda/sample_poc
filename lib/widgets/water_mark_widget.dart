@@ -74,7 +74,9 @@ getNoOfWatermarks(height) {
     noOfWatermarks = 3;
   else if (height <= 800)
     noOfWatermarks = 4;
-  else
+  else if (height <= 1000)
     noOfWatermarks = 5;
+  else
+    noOfWatermarks = 6;
   return noOfWatermarks;
 }

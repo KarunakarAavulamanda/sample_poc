@@ -22,7 +22,7 @@ class PostScreen extends StatelessWidget {
                 // 40% Account Information Details
                 Container(
                   width: (MediaQuery.of(context).size.width * 30) / 100,
-                  height: 628,
+                  height: 626,
                   decoration: BoxDecoration(
                     color: Colors.blue[100],
                     border: Border.all(color: Colors.black),
@@ -33,7 +33,7 @@ class PostScreen extends StatelessWidget {
                   width: 10,
                 ), // Space between Account Information Details and Table
                 Container(
-                  height: 1000,
+                  height: 578,
                   width: (MediaQuery.of(context).size.width * 68) / 100,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),

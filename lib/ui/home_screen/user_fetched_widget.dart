@@ -48,11 +48,14 @@ class _UserFetchedWidgetState extends State<UserFetchedWidget> {
                       children: [
                         Row(
                           children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                _showDataPopup(state.postList);
-                              },
-                              child: Text('Service Request'),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 100.0),
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  _showDataPopup(state.postList);
+                                },
+                                child: Text('Service Request'),
+                              ),
                             ),
                             IconButton(
                               onPressed: () {
@@ -114,7 +117,6 @@ class _UserFetchedWidgetState extends State<UserFetchedWidget> {
                   // Add watermark here
                   Watermark(
                     height: 600,
-                    width: 400,
                     multipleWatermarks: true,
                     watermarkText: '23456',
                     numberOfWatermarks:
