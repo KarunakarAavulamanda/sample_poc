@@ -105,7 +105,12 @@ class _UserFetchedWidgetState extends State<UserFetchedWidget> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
+        double height = MediaQuery.of(context).size.height;
+        double width = MediaQuery.of(context).size.width * 0.5;
+        int noOfWatermarks = getNoOfWatermarks(height);
         return AlertDialog(
+          insetPadding:
+              EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.7),
           title: Text('Service Request'),
           content: Container(
             width: MediaQuery.of(context).size.width *
@@ -116,12 +121,12 @@ class _UserFetchedWidgetState extends State<UserFetchedWidget> {
                 children: [
                   // Add watermark here
                   Watermark(
-                    height: 600,
+                    height: height,
+                    width: width,
                     multipleWatermarks: true,
                     watermarkText: '23456',
-                    numberOfWatermarks:
-                        getNoOfWatermarks(MediaQuery.of(context).size.height),
                     horizontalMultipleWatermarks: false,
+                    numberOfWatermarks: noOfWatermarks,
                     child: ListView.builder(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
