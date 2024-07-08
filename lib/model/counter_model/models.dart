@@ -18,6 +18,6 @@ class Counter extends Equatable {
   }
 
   @override
-  // TODO: implement props
+  // TODOimplement props
   List<Object?> get props => [value];
 }

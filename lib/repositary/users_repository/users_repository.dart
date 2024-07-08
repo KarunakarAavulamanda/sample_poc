@@ -15,7 +15,7 @@ class UsersRepository{
       final response = await Dio().get('https://jsonplaceholder.typicode.com/users').whenComplete((){
         final endTime = DateTime.now();
         duration = (endTime.difference(startTime).inMilliseconds)/1000;
-        print(duration);
+        // print(duration);
       });
 
 
@@ -42,14 +42,14 @@ class UsersRepository{
       }
     }
     on SocketException{
-      print('aa');
+      // print('aa');
       throw Exception('Error while fetching data');
     }
     on TimeoutException{
-      print('bb');
+      // print('bb');
       throw Exception('Error while fetching data');
     }
-    print('cc');
+    // print('cc');
     throw Exception('Error while fetching data');
   }
 

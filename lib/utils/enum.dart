@@ -1,8 +1,8 @@
 enum ApiStatus {
-  Stable,
-  Loading,
-  Success,
-  Failed,
-  NetworkError,
-  Refresh,
+  stable,
+  loading,
+  success,
+  failed,
+  networkError,
+  refresh,
 }

@@ -48,7 +48,7 @@ import 'package:sample_poc/ui/counter_screen/counter_screen.dart';
 // }
 
 void main() {
-  Widget _makeTestableWidget(Widget body) {
+  Widget makeTestableWidget(Widget body) {
     return BlocProvider<CounterBloc>(
       create: (context) => CounterBloc(),
       child: MaterialApp(
@@ -58,13 +58,13 @@ void main() {
   }
 
   testWidgets("checking test", (widgetTester) async {
-    await widgetTester.pumpWidget(_makeTestableWidget(const CounterScreen()));
+    await widgetTester.pumpWidget(makeTestableWidget(const CounterScreen()));
 
     expect(find.text("Counter BloC & Test"), findsOneWidget);
   });
 
   testWidgets("checking button", (widgetTester) async {
-    await widgetTester.pumpWidget(_makeTestableWidget(const CounterScreen()));
+    await widgetTester.pumpWidget(makeTestableWidget(const CounterScreen()));
 
     var fab = find.byType(FloatingActionButton);
     FloatingActionButton fabWidget = widgetTester.widget(fab);
@@ -72,14 +72,14 @@ void main() {
   });
 
   testWidgets("text", (widgetTester) async {
-    await widgetTester.pumpWidget(_makeTestableWidget(const CounterScreen()));
+    await widgetTester.pumpWidget(makeTestableWidget(const CounterScreen()));
 
     expect(find.byType(FloatingActionButton), findsOneWidget);
   });
 
   testWidgets('test', (widgetTester) async {
     //act``
-    await widgetTester.pumpWidget(_makeTestableWidget(const CounterScreen()));
+    await widgetTester.pumpWidget(makeTestableWidget(const CounterScreen()));
 
     //assert
     expect(find.byType(CircularProgressIndicator), findsOneWidget);

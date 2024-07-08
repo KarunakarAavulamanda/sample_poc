@@ -9,10 +9,10 @@ class PostsStates extends Equatable{
   final String message;
   final double timeTaken;
 
-  PostsStates({
+  const PostsStates({
     this.message = '',
     this.postList = const <PostModel>[],
-    this.apiStatus = ApiStatus.Loading,
+    this.apiStatus = ApiStatus.loading,
     this.timeTaken = 0.00,
   });
 
@@ -26,6 +26,6 @@ class PostsStates extends Equatable{
   }
 
   @override
-  // TODO: implement props
+  //implement props
   List<Object?> get props => [apiStatus,postList,message,timeTaken];
 }

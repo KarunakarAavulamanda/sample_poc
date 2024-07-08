@@ -18,7 +18,7 @@ class _MainPageState extends State<MainPage> {
           style: ButtonStyle(
             // fixedSize: Size.fromWidth(320),
             backgroundColor: WidgetStateProperty.all(
-              Color(0xff053c6d),
+              const Color(0xff053c6d),
             ),
             shape: WidgetStateProperty.all(
               RoundedRectangleBorder(
@@ -29,7 +29,7 @@ class _MainPageState extends State<MainPage> {
           onPressed: details.onStepContinue,
           child: Text(
             _currentStep >= 4 ? 'Finish' : 'Proceed',
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           )),
     );
   }
@@ -38,13 +38,13 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(100),
+        padding: const EdgeInsets.all(100),
         child: Stepper(
           elevation: 0,
           steps: [
             Step(
-                title: Text('Case Initiation'),
-                content: Text(''),
+                title: const Text('Case Initiation'),
+                content: const Text(''),
                 isActive: _currentStep >= 0,
                 state: _currentStep == 0 ? StepState.editing : _currentStep > 0 ? StepState.complete : StepState.disabled,
                 stepStyle: StepStyle(
@@ -53,8 +53,8 @@ class _MainPageState extends State<MainPage> {
                 )
                 ),
             Step(//_currentStep > 1 ? StepState.complete : StepState.disabled,
-                title: Text('Customer Acknowledgement'),
-                content: Text(''),
+                title: const Text('Customer Acknowledgement'),
+                content: const Text(''),
                 isActive: _currentStep >= 1,
                 state: _currentStep == 1 ? StepState.editing : _currentStep > 1 ? StepState.complete : StepState.disabled,
                 stepStyle: StepStyle(
@@ -64,8 +64,8 @@ class _MainPageState extends State<MainPage> {
                
                 ),
             Step(
-                title: Text('Upload Documents'),
-                content: Text(''),
+                title: const Text('Upload Documents'),
+                content: const Text(''),
                 isActive: _currentStep >= 2,
                 state: _currentStep == 2 ? StepState.editing : _currentStep > 2 ? StepState.complete : StepState.disabled,
                 stepStyle: StepStyle(
@@ -75,8 +75,8 @@ class _MainPageState extends State<MainPage> {
                
                 ),
             Step(
-                title: Text('Request Submission'),
-                content: Text(''),
+                title: const Text('Request Submission'),
+                content: const Text(''),
                 isActive: _currentStep >= 3,
                 state: _currentStep == 3 ? StepState.editing : _currentStep > 3 ? StepState.complete : StepState.disabled,
                 stepStyle: StepStyle(
@@ -86,8 +86,8 @@ class _MainPageState extends State<MainPage> {
                
                 ),
             Step(
-                title: Text('Triggers'),
-                content: Text(''),
+                title: const Text('Triggers'),
+                content: const Text(''),
                 isActive: _currentStep >= 4,
                 state: _currentStep == 4 ? StepState.editing : _currentStep > 4 ? StepState.complete : StepState.disabled,
                 stepStyle: StepStyle(

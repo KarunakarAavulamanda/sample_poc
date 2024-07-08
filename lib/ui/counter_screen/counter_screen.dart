@@ -21,7 +21,7 @@ class _CounterScreenState extends State<CounterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Counter BloC & Test FrontEnd "),
+        title: const Text("Counter BloC & Test FrontEnd "),
       ),
       body: Center(
         child: BlocBuilder<CounterBloc, CounterState>(
@@ -33,7 +33,7 @@ class _CounterScreenState extends State<CounterScreen> {
             if (state.status == CounterStatus.success) {
               return Text('The counter value is: ${state.counter.value}, ');
             } else {
-              return Text('Something went wrong');
+              return const Text('Something went wrong');
             }
           },
         ),

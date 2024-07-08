@@ -8,7 +8,7 @@ void main() {
   group('', () {
     //Create instance for Counter model
 
-    var testCounter = Counter();
+    var testCounter = const Counter();
 
     // creating the subgroup where we collect the all the test for the counterstate where the status equal to initial
 

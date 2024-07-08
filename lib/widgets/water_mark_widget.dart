@@ -24,7 +24,7 @@ class MyWaterMark extends StatelessWidget {
   }
 }
 
-Widget Watermark({
+Widget watermark({
   required Widget child,
   required String watermarkText,
   bool multipleWatermarks = false,
@@ -64,19 +64,20 @@ Widget Watermark({
   );
 }
 
-getNoOfWatermarks(height) {
+int getNoOfWatermarks(int height) {
   int noOfWatermarks = 0;
   if (height <= 200) {
     noOfWatermarks = 1;
-  } else if (height <= 400)
+  } else if (height <= 400) {
     noOfWatermarks = 2;
-  else if (height <= 600)
+  } else if (height <= 600) {
     noOfWatermarks = 3;
-  else if (height <= 800)
+  } else if (height <= 800) {
     noOfWatermarks = 4;
-  else if (height <= 1000)
+  } else if (height <= 1000) {
     noOfWatermarks = 5;
-  else
+  } else {
     noOfWatermarks = 6;
+  }
   return noOfWatermarks;
 }

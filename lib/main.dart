@@ -7,7 +7,7 @@ import 'package:sample_poc/ui/home_screen/post_screen.dart';
 
 void main() {
   HttpOverrides.global = MyHttpOverrides();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         
-        home: PostScreen(),
+        home: const PostScreen(),
       ),
     );
   }

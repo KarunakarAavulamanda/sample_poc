@@ -6,7 +6,7 @@ import 'package:sample_poc/ui/home_screen/user_fetched_widget.dart';
 import '../counter_screen/counter_screen.dart';
 
 class PostScreen extends StatelessWidget {
-  const PostScreen({Key? key}) : super(key: key);
+  const PostScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

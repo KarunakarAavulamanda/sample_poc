@@ -15,13 +15,13 @@ class PostRepository{
       final response = await Dio().get('https://jsonplaceholder.typicode.com/comments').whenComplete((){
         final endTime = DateTime.now();
         duration = (endTime.difference(startTime).inMilliseconds)/1000;
-        print('duration: '+duration.toString());
+        // print('duration: '+duration.toString());
+
       });
 
       if(response.statusCode == 200){
         List<PostModel> data = [];
         final List body = response.data;
-        // print(body);
         int count = 0;
         body.forEach((e){
           if(count <= 10){
@@ -48,14 +48,14 @@ class PostRepository{
       }
     }
     on SocketException{
-      print('aa');
+    // print('aa');
       throw Exception('Error while fetching data');
     }
     on TimeoutException{
-      print('bb');
+    // print('bb');
       throw Exception('Error while fetching data');
     }
-    print('cc');
+    // print('cc');
     throw Exception('Error while fetching data');
   }
 
@@ -66,7 +66,7 @@ class PostRepository{
       final response = await Dio().get('http://localhost:8080/todo');
       final endTime = DateTime.now();
       final duration = (endTime.difference(startTime).inMilliseconds)/1000;
-      print(duration);
+      // print(duration);
       if(response.statusCode == 200){
         final String htmlString = response.data;
 
@@ -79,14 +79,14 @@ class PostRepository{
       }
     }
     on SocketException{
-      print('aa');
+      // print('aa');
       throw Exception('Error while fetching data');
     }
     on TimeoutException{
-      print('bb');
+      // print('bb');
       throw Exception('Error while fetching data');
     }
-    print('cc');
+    // print('cc');
     throw Exception('Error while fetching data');
   }
 

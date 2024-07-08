@@ -7,7 +7,7 @@ import 'package:sample_poc/widgets/water_mark_widget.dart';
 import 'package:sample_poc/utils/enum.dart';
 
 class UserFetchedWidget extends StatefulWidget {
-  const UserFetchedWidget({Key? key}) : super(key: key);
+  const UserFetchedWidget({super.key});
 
   @override
   State<UserFetchedWidget> createState() => _UserFetchedWidgetState();
@@ -29,13 +29,13 @@ class _UserFetchedWidgetState extends State<UserFetchedWidget> {
             double height = constraints.maxHeight;
             double width = constraints.maxWidth;
             int noOfWatermarks = 0;
-            noOfWatermarks = getNoOfWatermarks(height);
-            if (state.apiStatus == ApiStatus.Loading) {
+            noOfWatermarks = getNoOfWatermarks(height as int);
+            if (state.apiStatus == ApiStatus.loading) {
               return const Center(child: CircularProgressIndicator());
-            } else if (state.apiStatus == ApiStatus.Failed) {
+            } else if (state.apiStatus == ApiStatus.failed) {
               return Center(child: Text(state.message));
             } else {
-              return Watermark(
+              return watermark(
                 numberOfWatermarks: noOfWatermarks,
                 horizontalMultipleWatermarks: true,
                 multipleWatermarks: true,
@@ -54,14 +54,14 @@ class _UserFetchedWidgetState extends State<UserFetchedWidget> {
                                 onPressed: () {
                                   _showDataPopup(state.postList);
                                 },
-                                child: Text('Service Request'),
+                                child: const Text('Service Request'),
                               ),
                             ),
                             IconButton(
                               onPressed: () {
                                 context.read<UsersBloc>().add(UsersRefresh());
                               },
-                              icon: Icon(Icons.refresh),
+                              icon: const Icon(Icons.refresh),
                             ),
                             Text('${state.timeTaken} sec'),
                           ],
@@ -86,10 +86,10 @@ class _UserFetchedWidgetState extends State<UserFetchedWidget> {
                         ),
                       ],
                     ),
-                    if (state.apiStatus == ApiStatus.Refresh)
+                    if (state.apiStatus == ApiStatus.refresh)
                       SizedBox(
                         height: MediaQuery.of(context).size.height / 2,
-                        child: Center(child: CircularProgressIndicator()),
+                        child: const Center(child: CircularProgressIndicator()),
                       ),
                   ],
                 ),
@@ -107,12 +107,12 @@ class _UserFetchedWidgetState extends State<UserFetchedWidget> {
       builder: (BuildContext context) {
         double height = MediaQuery.of(context).size.height;
         double width = MediaQuery.of(context).size.width * 0.5;
-        int noOfWatermarks = getNoOfWatermarks(height);
+        int noOfWatermarks = getNoOfWatermarks(height as int);
         return AlertDialog(
           insetPadding:
               EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.7),
-          title: Text('Service Request'),
-          content: Container(
+          title: const Text('Service Request'),
+          content: SizedBox(
             width: MediaQuery.of(context).size.width *
                 0.3, // Adjust the width as needed
             child: SingleChildScrollView(
@@ -120,7 +120,7 @@ class _UserFetchedWidgetState extends State<UserFetchedWidget> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   // Add watermark here
-                  Watermark(
+                  watermark(
                     height: height,
                     width: width,
                     multipleWatermarks: true,
@@ -129,7 +129,7 @@ class _UserFetchedWidgetState extends State<UserFetchedWidget> {
                     numberOfWatermarks: noOfWatermarks,
                     child: ListView.builder(
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: dataList.length,
                       itemBuilder: (context, index) {
                         final item = dataList[index];
@@ -146,7 +146,7 @@ class _UserFetchedWidgetState extends State<UserFetchedWidget> {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('Close'),
+              child: const Text('Close'),
               onPressed: () {
                 Navigator.of(context).pop();
               },

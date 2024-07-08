@@ -10,10 +10,10 @@ class UsersStates extends Equatable{
   final String message;
   final double timeTaken;
 
-  UsersStates({
+  const UsersStates({
     this.message = '',
     this.postList = const <UsersModel>[],
-    this.apiStatus = ApiStatus.Loading,
+    this.apiStatus = ApiStatus.loading,
     this.timeTaken = 0.00,
   });
 
@@ -27,6 +27,6 @@ class UsersStates extends Equatable{
   }
 
   @override
-  // TODO: implement props
+  // TODOimplement props
   List<Object?> get props => [apiStatus,postList,message,timeTaken];
 }
