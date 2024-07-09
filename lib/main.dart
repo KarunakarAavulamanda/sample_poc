@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sample_poc/bloc/posts/posts_bloc.dart';
 import 'package:sample_poc/bloc/users/users_bloc.dart';
+import 'package:sample_poc/bloc/water_mark/water_mark_bloc.dart';
 import 'package:sample_poc/ui/home_screen/post_screen.dart';
 
 void main() {
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => PostsBloc()),
         BlocProvider(create: (_) => UsersBloc()),
+        BlocProvider(create: (_) => WaterMarkBloc()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

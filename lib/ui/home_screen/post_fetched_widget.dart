@@ -41,7 +41,9 @@ class _PostFetchedWidgetState extends State<PostFetchedWidget> {
                 numberOfWatermarks: noOfWatermarks,
                 horizontalMultipleWatermarks: false,
                 multipleWatermarks: true,
-                watermarkText: '23456',
+                watermarkText: state.postList.isNotEmpty
+                    ? state.postList.first.postId.toString()
+                    : '',
                 child: Stack(
                   children: [
                     Column(

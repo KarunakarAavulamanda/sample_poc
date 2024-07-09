@@ -39,7 +39,9 @@ class _UserFetchedWidgetState extends State<UserFetchedWidget> {
                 numberOfWatermarks: noOfWatermarks,
                 horizontalMultipleWatermarks: true,
                 multipleWatermarks: true,
-                watermarkText: '23456',
+                watermarkText: state.postList.isNotEmpty
+                    ? state.postList.first.username.toString()
+                    : '',
                 height: height,
                 width: width,
                 child: Stack(
@@ -108,51 +110,55 @@ class _UserFetchedWidgetState extends State<UserFetchedWidget> {
         double height = MediaQuery.of(context).size.height;
         double width = MediaQuery.of(context).size.width * 0.5;
         int noOfWatermarks = getNoOfWatermarks(height as int);
-        return AlertDialog(
-          insetPadding:
-              EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.7),
-          title: const Text('Service Request'),
-          content: SizedBox(
-            width: MediaQuery.of(context).size.width *
-                0.3, // Adjust the width as needed
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  // Add watermark here
-                  watermark(
-                    height: height,
-                    width: width,
-                    multipleWatermarks: true,
-                    watermarkText: '23456',
-                    horizontalMultipleWatermarks: false,
-                    numberOfWatermarks: noOfWatermarks,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: dataList.length,
-                      itemBuilder: (context, index) {
-                        final item = dataList[index];
-                        return ListTile(
-                          title: Text(item.email.toString()),
-                          subtitle: Text(item.name.toString()),
-                        );
-                      },
+        return BlocBuilder<UsersBloc, UsersStates>(builder: (context, state) {
+          return AlertDialog(
+            insetPadding:
+                EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.7),
+            title: const Text('Service Request'),
+            content: SizedBox(
+              width: MediaQuery.of(context).size.width *
+                  0.3, // Adjust the width as needed
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Add watermark here
+                    watermark(
+                      height: height,
+                      width: width,
+                      multipleWatermarks: true,
+                      watermarkText: state.postList.isNotEmpty
+                          ? state.postList.first.username.toString()
+                          : '',
+                      horizontalMultipleWatermarks: false,
+                      numberOfWatermarks: noOfWatermarks,
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: dataList.length,
+                        itemBuilder: (context, index) {
+                          final item = dataList[index];
+                          return ListTile(
+                            title: Text(item.email.toString()),
+                            subtitle: Text(item.name.toString()),
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Close'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
+            actions: <Widget>[
+              TextButton(
+                child: const Text('Close'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        });
       },
     );
   }
